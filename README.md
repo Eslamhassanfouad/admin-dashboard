@@ -79,18 +79,18 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 - **Development (V):**
 
--Dedicated environment where active development happens.
--Frequent updates with new features tested regularly.
--Detailed logs and error messages to help with debugging.
+- Dedicated environment where active development happens.
+- Frequent updates with new features tested regularly.
+- Detailed logs and error messages to help with debugging.
 
 
 - **Quality Assurance (QA):**
 
--Testing environment to verify all new features and fixes before production.
--Simulates production as closely as possible but uses test data.
+- Testing environment to verify all new features and fixes before production.
+- Simulates production as closely as possible but uses test data.
 
 
 - **Production (Prod):**
 
--Stable environment where real users interact with the app.
--Code pipeline: Development → QA → Production to ensure stability and performance.
+- Stable environment where real users interact with the app.
+- Code pipeline: Development → QA → Production to ensure stability and performance.
