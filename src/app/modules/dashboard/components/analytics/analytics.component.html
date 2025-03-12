@@ -1,0 +1,36 @@
+<section class="analytics">
+  <div class="title">
+    <h4 class="mb-3">Analytics</h4>
+    <app-loading [loading]="loading"></app-loading>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <ng-container *ngIf="analyticsData?.length > 0; else empty">
+      <div class="row">
+        <div
+          class="col-lg-3 col-md-6 col-sm-12"
+          *ngFor="let item of analyticsData"
+        >
+          <div class="card-container d-flex flex-row justify-content-center">
+            <div class="img-holder">
+              <img [src]="item.image" alt="" />
+            </div>
+            <div class="r-card ps-3">
+              <p class="r-card-title">{{ item.title.split(" ")[0] }}</p>
+              <div class="bottom-card d-flex flex-row justify-content-evenly">
+                <h3 class="number">{{ item.price | currency }}</h3>
+                <p class="rating">{{ item.rating.rate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #empty>
+      <div
+        class="w-100 text-center"
+        *ngIf="!loading && analyticsData.length < 0"
+      >
+        <h3 class="no-data">No analytics Data ...</h3>
+      </div>
+    </ng-template>
+  </div>
+</section>

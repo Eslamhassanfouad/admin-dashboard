@@ -1,0 +1,46 @@
+<!-- Navbar Toggle Button -->
+<button
+  class="navbar-toggler custom-toggler d-lg-none"
+  type="button"
+  (click)="toggleMenu()"
+  aria-label="Toggle navigation"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar -->
+<nav class="side-bar" [class.open]="isMenuOpen">
+  <div class="logo-container text-center">
+    <img src="assets/icons/Logo.svg" alt="Logo" />
+  </div>
+  <ul>
+    <li *ngFor="let item of sideBarItems">
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img [src]="item.icon" alt="side-bar-icon" />
+        <span class="label">{{ item.label }}</span>
+      </a>
+    </li>
+    <div class="separator"></div>
+    <li class="parent" *ngFor="let item of sideBarBottom; let i = index">
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [class.bold]="item.label === 'Message' && notification()"
+      >
+        <img [src]="item.icon" alt="side-bar-icon" />
+        <span class="label">{{ item.label }}</span>
+        <div
+          class="notif"
+          *ngIf="notification() && item.label === 'Message'"
+        ></div>
+      </a>
+    </li>
+  </ul>
+</nav>

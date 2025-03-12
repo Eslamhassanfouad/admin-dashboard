@@ -1,0 +1,53 @@
+<div class="chart-container p-4 pb-2">
+  <div class="chart-header">
+    <div class="d-flex flex-row align-items-center justify-content-left">
+      <h4>Visits Report</h4>
+    </div>
+
+    <div class="filters">
+      <button
+        (click)="filterData('day')"
+        [class.active]="selectedFilter === 'day'"
+      >
+        D
+      </button>
+      <button
+        (click)="filterData('week')"
+        [class.active]="selectedFilter === 'week'"
+      >
+        W
+      </button>
+      <button
+        (click)="filterData('month')"
+        [class.active]="selectedFilter === 'month'"
+      >
+        M
+      </button>
+      <button
+        (click)="filterData('year')"
+        [class.active]="selectedFilter === 'year'"
+      >
+        Y
+      </button>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div *ngIf="series && series.length">
+    <apx-chart
+      [series]="series"
+      [chart]="chart"
+      [xaxis]="xaxis"
+      [yaxis]="yaxis"
+      [title]="title"
+      [fill]="fill"
+      [tooltip]="tooltip"
+      [markers]="markers"
+      [dataLabels]="dataLabels"
+    ></apx-chart>
+  </div>
+
+  <div *ngIf="!series || series.length === 0">
+    <p>Loading chart data...</p>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<header class="top-nav">
+  <div class="row">
+    <div class="col-lg-6 col-md-6">
+      <div class="search-holder">
+        <input type="text" class="form-control" placeholder="search" />
+        <img
+          class="search-icon"
+          src="assets/icons/search.svg"
+          alt="search-icon"
+        />
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div
+        class="user-info d-flex flex-row align-items-center justify-content-end pe-5"
+      >
+        <img class="me-2" src="assets/icons/cart.svg" alt="cart-icon" />
+        <div class="notif-container">
+          <img
+            class="me-3"
+            src="assets/icons/notification.svg"
+            alt="notification-icon"
+          />
+          <span *ngIf="notification()" class="notif"> </span>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn dropdown-toggle d-flex align-items-center"
+            type="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="user-image me-2"
+              [src]="currentUser.imgUrl || 'assets/images/pp.svg'"
+              alt="profile-pic"
+            />
+            <h6 class="m-0">
+              {{ currentUser.firstName }} {{ currentUser.lastName }}
+            </h6>
+            <img
+              src="assets/icons/arrow-down.svg"
+              alt="arrow-down"
+              class="ms-2"
+            />
+          </button>
+
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+          >
+            <li>
+              <a class="dropdown-item">
+                <img
+                  src="assets/icons/profile-drop-down.svg"
+                  alt="profile-icon"
+                  class="me-2"
+                />
+                Profile
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="_AuthService.logout()"
+                class="dropdown-item text-danger"
+              >
+                <img
+                  src="assets/icons/log-out.svg"
+                  alt="logout-icon"
+                  class="me-2"
+                />
+                Sign Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,58 @@
+<div class="chart-container p-4 pb-2">
+  <div class="chart-header">
+    <div class="d-flex flex-row align-items-center justify-content-left">
+      <h4>Report</h4>
+      <select [(ngModel)]="selectedMetric" class="dropdown">
+        <option value="sales">Sales</option>
+        <option value="expenses">Expenses</option>
+        <option value="profit">Profit</option>
+      </select>
+    </div>
+
+    <div class="filters">
+      <button
+        (click)="filterData('day')"
+        [class.active]="selectedFilter === 'day'"
+      >
+        Day
+      </button>
+      <button
+        (click)="filterData('week')"
+        [class.active]="selectedFilter === 'week'"
+      >
+        Week
+      </button>
+      <button
+        (click)="filterData('month')"
+        [class.active]="selectedFilter === 'month'"
+      >
+        Month
+      </button>
+      <button
+        (click)="filterData('year')"
+        [class.active]="selectedFilter === 'year'"
+      >
+        Year
+      </button>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div *ngIf="series && series.length">
+    <apx-chart
+      [series]="series"
+      [chart]="chart"
+      [xaxis]="xaxis"
+      [yaxis]="yaxis"
+      [title]="title"
+      [fill]="fill"
+      [tooltip]="tooltip"
+      [markers]="markers"
+      [dataLabels]="dataLabels"
+    ></apx-chart>
+  </div>
+
+  <div *ngIf="!series || series.length === 0">
+    <p>Loading chart data...</p>
+  </div>
+</div>

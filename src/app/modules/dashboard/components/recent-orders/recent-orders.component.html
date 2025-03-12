@@ -1,0 +1,49 @@
+<section class="recent-orders">
+  <h4>Recent Orders</h4>
+  <div class="table-holder">
+    <app-loading [loading]="loading"></app-loading>
+
+    <div *ngIf="errorMessage && !loading" class="error">
+      {{ errorMessage }}
+    </div>
+
+    <div
+      *ngIf="!loading && !recentOrdersData?.length && !errorMessage"
+      class="no-data"
+    >
+      No recent orders available.
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers">{{ header | titlecase }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of recentOrdersData">
+          <td *ngFor="let header of headers">
+            <ng-container [ngSwitch]="header">
+              <img
+                *ngSwitchCase="'image'"
+                [src]="row[header]"
+                alt="Product Image"
+                width="37"
+                height="37"
+              />
+
+              <span *ngSwitchCase="'price'">
+                {{ row[header] | currency : "USD" : "symbol" }}
+              </span>
+
+              <span *ngSwitchCase="'rate'">
+                {{ row.rating?.rate }}
+              </span>
+
+              <span *ngSwitchDefault>{{ row[header] }}</span>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

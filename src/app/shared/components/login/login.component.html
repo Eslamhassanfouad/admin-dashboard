@@ -1,0 +1,78 @@
+<div class="d-flex vh-100">
+  <!-- Left Side: Form -->
+  <div
+    class="login-container w-50 d-flex align-items-center justify-content-center"
+  >
+    <div class="w-75">
+      <h2 class="text-center mb-4">Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <!-- First Name -->
+        <div class="pt-3">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="firstName"
+            name="firstName"
+            placeholder="First Name"
+            required
+          />
+        </div>
+        <!-- Last Name -->
+        <div class="pt-3">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            required
+          />
+        </div>
+        <!-- Username -->
+        <div class="pt-3">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <!-- Password -->
+        <div class="pt-3">
+          <input
+            class="form-control"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <!-- Role Selection -->
+        <div class="pt-3">
+          <label class="form-label">Role:</label>
+          <select class="form-select" [(ngModel)]="role" name="role" required>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+          </select>
+        </div>
+        <!-- Login Button -->
+        <div class="pt-4 text-center">
+          <button class="btn btn-primary w-100" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Right Side: Logo -->
+  <div class="w-50 d-flex align-items-center justify-content-center bg-light">
+    <img
+      src="assets/icons/Logo.svg"
+      alt="Logo"
+      class="img-fluid"
+      style="max-width: 60%"
+    />
+  </div>
+</div>
