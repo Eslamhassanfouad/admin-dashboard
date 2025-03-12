@@ -72,3 +72,21 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - **User UI:**
 
   - If you log in with a normal user, you'll find some text describing that this is the User UI, showcasing how routes are protected.
+ 
+
+
+Future Plans for Environments
+
+Development (V):
+
+Dedicated environment where active development happens.
+Frequent updates with new features tested regularly.
+Detailed logs and error messages to help with debugging.
+Quality Assurance (QA):
+
+Testing environment to verify all new features and fixes before production.
+Simulates production as closely as possible but uses test data.
+Production (Prod):
+
+Stable environment where real users interact with the app.
+Code pipeline: Development → QA → Production to ensure stability and performance.
