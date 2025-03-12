@@ -7,8 +7,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository-url>
-   cd <project-folder>
+   git clone https://github.com/Eslamhassanfouad/admin-dashboard.git
+   
    ```
 
 2. **Install Dependencies:**
