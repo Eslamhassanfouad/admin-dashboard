@@ -2,58 +2,73 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
-## Development server
+## Setup Instructions
 
-To start a local development server, run:
+1. **Clone the Repository:**
 
-```bash
-ng serve
-```
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+   ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. **Install Dependencies:**
 
-## Code scaffolding
+   ```bash
+   npm install
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. **Run the Application:**
 
-```bash
-ng generate component component-name
-```
+   ```bash
+   ng serve
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. **Access the App:** Open your browser and navigate to `http://localhost:4200/`.
 
-```bash
-ng generate --help
-```
+## Architecture Overview
 
-## Building
+- **Layouts:**
 
-To build the project run:
+  - The project follows a two-layout approach: `Admin Layout` and `User Layout` to enhance security.
+  - The `Dashboard Module` has been implemented, and any other admin route will follow the same structure.
 
-```bash
-ng build
-```
+- **Modules:**
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+  - `AppModule` - Root module that bootstraps the application.
+  - `DashboardModule` - Manages the admin dashboard.
+  - **Note:** Each side-bar route will be a separate module with its UI components.
 
-## Running unit tests
+- **Shared Components:**
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+  - `TopNavComponent`
+  - `SideBarComponent`
+  - `LoadingComponent`
 
-```bash
-ng test
-```
+- **Services:**
 
-## Running end-to-end tests
+  - `AuthService` - Manages authentication and user data.
+  - `LoggedInUserService` - Tracks notifications using signals. If we integrate Firebase or real-time data, signals offer better performance compared to `BehaviorSubject`.
 
-For end-to-end (e2e) testing, run:
+- **Guards:**
 
-```bash
-ng e2e
-```
+  - `AuthGuard` - Protects routes based on user authentication and role.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Design Choices and Trade-offs
 
-## Additional Resources
+- **Two Layouts for Security:**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  - The admin and user layouts were separated to enhance security and role-based access.
+  - The admin dashboard is implemented first, and additional admin routes will follow the same module-based approach.
+
+- **Loading Spinner:**
+
+  - A loading spinner for the entire dashboard UI was not implemented to avoid delaying the dashboard while waiting for API responses.
+
+- **Mock Login System:**
+
+  - Users can log in with any first name and last name.
+  - Authentication is role-based, and only the role determines access via `AuthGuard`.
+
+- **User UI:**
+
+  - If you log in with a normal user, you'll find some text describing that this is the User UI, showcasing how routes are protected.
