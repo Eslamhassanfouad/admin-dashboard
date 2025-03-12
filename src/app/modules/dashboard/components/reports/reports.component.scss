@@ -48,3 +48,9 @@
   color: #007bff;
   font-weight: 700;
 }
+
+@media (max-width: 767px) {
+  .filters {
+    flex-direction: column;
+  }
+}

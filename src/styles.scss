@@ -163,3 +163,25 @@ h4 {
   letter-spacing: 0%;
   color: #000000;
 }
+
+@media (max-width: 991px) {
+  .visits-container,
+  .recent-orders {
+    margin-top: 24px !important;
+  }
+  apx-chart {
+    display: block !important;
+    width: 100% !important;
+  }
+  .dashboard {
+    padding-left: 15px !important;
+
+    padding-right: 26px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .chart-container {
+    padding: 24px 12px !important;
+  }
+}
